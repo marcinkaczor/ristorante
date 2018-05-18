@@ -11,7 +11,7 @@ const asyncCheckout = asyncComponent(() => {
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="ristorante">
         <Layout>
           <Switch>
             <Route path="/checkout" component={asyncCheckout} />
