@@ -7,7 +7,7 @@ import {
 const buildControl = (props) => (
   <Col>
     <Card className="mb-3">
-      <CardImg top width="100%" src={window.location.origin + '/img/'+props.type+'.jpg'} alt={props.label} />
+      <CardImg top width="100%" src={window.location.href + '/img/'+props.type+'.jpg'} alt={props.label} />
       <CardBody>
         <CardTitle>{props.label}</CardTitle>
         <CardSubtitle></CardSubtitle>
