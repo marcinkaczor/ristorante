@@ -21,7 +21,7 @@ const pizza = (props) => {
   }
 
   return (
-    <Card className="mt-5">
+    <Card className="mt-5 mb-5">
       <CardBody>
         {ingredients}
       </CardBody>
