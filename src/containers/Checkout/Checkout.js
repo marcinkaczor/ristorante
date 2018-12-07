@@ -7,11 +7,22 @@ import ContactData from '../../components/ContactData/ContactData';
 
 class Checkout extends Component {
 
+  constructor(props){
+    super(props);
+    this.ref = React.createRef();
+  }
+  scrollToMyRef = () => {
+    window.scrollTo({
+        top: this.ref.current.offsetTop - 20, 
+        behavior: "smooth"
+    })
+  }
   checkoutCancelledHandler = () => {
     this.props.history.goBack();
   }
   checkoutContinuedHandler = () => {
-    this.props.history.replace('/checkout/contact-data')
+    this.props.history.replace('/checkout/contact-data');
+    setTimeout(() => this.scrollToMyRef(), 250);
   }
   render() {
     let summary = <Redirect to="/" />;
@@ -25,7 +36,7 @@ class Checkout extends Component {
             checkoutContinued={this.checkoutContinuedHandler}
             ingredients={this.props.ings} />
           <Route path={this.props.match.path + '/contact-data'}
-            component={ContactData} />
+            render={() => <ContactData refProp={this.ref}/>} />
         </div>
       );
     }

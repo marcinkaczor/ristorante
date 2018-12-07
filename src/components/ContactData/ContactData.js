@@ -177,7 +177,7 @@ class ContactData extends Component {
       );
     }
     return (
-      <div className="my-5">
+      <div className="my-5" ref={this.props.refProp}>
         <h3>Enter your Contact Data</h3>
         {form}
       </div>
