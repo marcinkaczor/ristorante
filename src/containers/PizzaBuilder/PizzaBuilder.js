@@ -53,25 +53,31 @@ class PizzaBuilder extends Component {
     let orderSummary = null;
     if (this.props.ings) {
       pizza = (
-        <Row>
-          <Col lg="8" sm="12" xs="12">
-            <BuildControls
-              ingredientAdded={this.props.onIngredientAdded}
-              ingredientRemoved={this.props.onIngredientRemoved}
-              disabled={disabledInfo} />
-          </Col>
-          <Col lg="4" sm="12" xs="12">
-            <Alert color="success" className="mt-5" isOpen={this.props.greeting} toggle={this.props.onDeleteGreeting}>
-              Thank you for placing an order.
-            </Alert>
-            <InitialOrder
-              ordered={this.purchaseHandler}
-              price={this.props.price}
-              purchasable={this.updatePurchaseState(this.props.ings)} />
-            <Pizza
-              ingredients={this.props.ings} />
-          </Col>
-        </Row>
+        <React.Fragment>
+          <Row>
+            <Col>
+              <Alert color="success" className="mt-5" isOpen={this.props.greeting} toggle={this.props.onDeleteGreeting}>
+                Thank you for placing an order.
+              </Alert>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg="8" sm="12" xs="12">
+              <BuildControls
+                ingredientAdded={this.props.onIngredientAdded}
+                ingredientRemoved={this.props.onIngredientRemoved}
+                disabled={disabledInfo} />
+            </Col>
+            <Col lg="4" sm="12" xs="12">
+              <InitialOrder
+                ordered={this.purchaseHandler}
+                price={this.props.price}
+                purchasable={this.updatePurchaseState(this.props.ings)} />
+              <Pizza
+                ingredients={this.props.ings} />
+            </Col>
+          </Row>
+        </React.Fragment>
       );
       orderSummary = (
         <OrderSummary
